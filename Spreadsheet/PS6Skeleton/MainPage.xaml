@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:SS="clr-namespace:SS"
+             x:Class="SpreadsheetGUI.MainPage">
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="File">
+            <MenuFlyoutItem Text="New" Clicked="NewClicked" />
+            <MenuFlyoutItem Text="Open" Clicked="OpenClicked" />
+            <MenuFlyoutItem Text="Help" Clicked="HelpClicked" />
+        </MenuBarItem>
+        <MenuBarItem Text="Saving">
+            <MenuFlyoutItem Text="Save" Clicked="SaveClicked" />
+            <MenuFlyoutItem Text="Save Location" Clicked="LocationClicked" />
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+    <Grid RowDefinitions="40, 40, *"
+          ColumnDefinitions="40, 2.5*, *, *"
+          ColumnSpacing="8">
+        <Label Text="C:\Users\Connor\source\repos\spreadsheet-EliteWolf11\Spreadsheet\PS6Skeleton\testfile.sprd"
+               x:Name="saveLabel"
+               Grid.Row="0"
+               Grid.ColumnSpan="3"
+               FontAttributes="Italic"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               />
+        <BoxView Grid.Row="1"
+                 Grid.Column="0"
+                 Color="Teal"
+                 CornerRadius="10"
+                 />
+        <Label Text=""
+               x:Name="cellNameLabel"
+               FontSize="17"
+               FontAttributes="Bold"
+               Grid.Row="1"
+               Grid.Column="0"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               />
+        <Entry Placeholder="Cell Contents:"
+               PlaceholderColor="LightGray"
+               x:Name="cellContentEntry"
+               Completed="EntryCompleted"
+               VerticalOptions="Center"
+               Grid.Row="1"
+               Grid.Column="1"
+               BackgroundColor="Teal"/>
+        <Entry Placeholder="Find:"
+               PlaceholderColor="LightGray"
+               x:Name="findEntry"
+               Completed="findCompleted"
+               VerticalOptions="Center"
+               Grid.Row="1"
+               Grid.Column="2"
+               BackgroundColor="Teal"/>
+        <BoxView Grid.Row="1"
+                 Grid.Column="3"
+                 Color="Teal"
+                 CornerRadius="10"
+                 />
+        <Label Text="Cell Value:"
+               x:Name="cellValueLabel"
+               Grid.Row="1"
+               Grid.Column="3"
+               Padding="5"
+               VerticalOptions="Center"
+               
+               />
+        <SS:SpreadsheetGrid x:Name="spreadsheetGrid" 
+                            Grid.Row="2"
+                            Grid.ColumnSpan="4"/>
+    </Grid>
+</ContentPage>
+
